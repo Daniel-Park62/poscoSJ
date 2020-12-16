@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="sj.posco" transaction-type="RESOURCE_LOCAL">
+		<description>sj_posco</description>
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>sj.posco.model.LasTime</class>
+		<class>sj.posco.model.Moteconfig</class>
+		<class>sj.posco.model.Motehist</class>
+		<class>sj.posco.model.Moteinfo</class>
+		<class>sj.posco.model.Motestatus</class>
+		<class>sj.posco.model.TbStand</class>
+		<class>sj.posco.model.TbStand2</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/sjdb"/>
+			<property name="javax.persistence.jdbc.user" value="pocusr"/>
+			<property name="javax.persistence.jdbc.password" value="dawinit1"/>
+			<property name="eclipselink.target-database" value="MySQL"/>
+			<property name="eclipselink.logging.level" value="WARNING"/>
+		</properties>
+	</persistence-unit>
+</persistence>
