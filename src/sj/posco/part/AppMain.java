@@ -61,7 +61,7 @@ public class AppMain extends ApplicationWindow {
     
     final public static Cursor handc = SWTResourceManager.getCursor( SWT.CURSOR_HAND);
     final public static Cursor busyc = SWTResourceManager.getCursor( SWT.CURSOR_WAIT);
-    public static Moteconfig MOTECNF = Moteconfig.getInstance() ;
+    public static Moteconfig MOTECNF ;  // = Moteconfig.getInstance() ;
     
     public String[] stand ; // = {"1T","1B","2T","2B","3T","3B"} ;
     public String[] sno ; 
@@ -108,8 +108,8 @@ public class AppMain extends ApplicationWindow {
 
 	public void reloaddata() {
 		EntityManager em = emf.createEntityManager();
-		MOTECNF = em.createNamedQuery("Moteconfig.findAll", Moteconfig.class).getSingleResult() ;
-		
+//		MOTECNF = em.createNamedQuery("Moteconfig.findAll", Moteconfig.class).getSingleResult() ;
+		MOTECNF = em.find(Moteconfig.class ,1) ;
 		List<String> listStand = 
 				em.createNativeQuery("WITH tt AS (SELECT 'T' loc UNION SELECT 'B') SELECT cast(concat(a.standno,t.loc) as char(2))  FROM tb_stand a, tt as t" ) 
 				.getResultList() ;
